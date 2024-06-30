@@ -23,8 +23,8 @@ const App = () => {
     const toggleSidebar = () => setIsActive(!isActive);
 
     return html`
-        <div className="container-fluid">
-            <nav>
+        <div className="layout">
+            <nav className="container-fluid">
                 <ul>
                     <li><strong>News by the Numbers</strong></li>
                 </ul>
@@ -39,7 +39,7 @@ const App = () => {
                 `}
             </nav>
 
-            <div className="grid">
+            <div className="content-wrapper">
                 <aside className=${`sidebar ${isMobile && isActive ? 'active' : ''} ${isMobile ? 'mobile' : ''}`}>
                     <nav>
                         <ul>
@@ -67,7 +67,7 @@ const App = () => {
                 </main>
             </div>
 
-            <footer>
+            <footer className="container">
                 <small>© 2024 News by the Numbers</small>
             </footer>
         </div>

@@ -9,16 +9,14 @@
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/htm@3.1.0/dist/htm.js"></script>
     <style>
-        body > #root > .container-fluid {
+        .layout {
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            padding: 0;
         }
-        .grid {
-            flex-grow: 1;
+        .content-wrapper {
             display: flex;
-            margin: 0;
+            flex-grow: 1;
         }
         .sidebar {
             width: 250px;
@@ -41,7 +39,7 @@
             padding: 1rem;
         }
         @media (max-width: 768px) {
-            .grid {
+            .content-wrapper {
                 flex-direction: column;
             }
             .sidebar {
