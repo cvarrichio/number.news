@@ -57,10 +57,10 @@ const App = () => {
                 <main className="container">
                     ${content.map(item => html`
                         <article key=${item.id} id=${item.id}>
-                            <header>
+                            <hgroup>
                                 <h2>${item.display_name}</h2>
                                 ${item.description && html`<p>${item.description}</p>`}
-                            </header>
+                            </hgroup>
                             <div dangerouslySetInnerHTML=${{ __html: item.content }} />
                         </article>
                     `)}
