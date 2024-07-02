@@ -34,7 +34,6 @@ check_command "Failed to install dependencies"
 # Create and activate virtual environment
 echo "Setting up Python virtual environment..."
 python3.10 -m venv $VENV_PATH
-check_command "Failed to create virtual environment"
 
 # Install Python dependencies from requirements.txt
 echo "Installing Python dependencies..."

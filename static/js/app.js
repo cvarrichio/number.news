@@ -12,6 +12,26 @@ const App = () => {
             .catch(error => console.error('Error fetching content:', error));
     }, []);
 
+    useEffect(() => {
+        // This effect runs after the content is rendered
+        content.forEach(item => {
+          const element = document.getElementById(item.id);
+          if (element) {
+            // Insert the content
+            element.innerHTML = item.content;
+    
+            // Find and execute any scripts
+            const scripts = element.getElementsByTagName('script');
+            Array.from(scripts).forEach(oldScript => {
+              const newScript = document.createElement('script');
+              Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+              newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+              oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+          }
+        });
+      }, [content]);
+
     const toggleSidebar = () => setIsActive(!isActive);
 
     return html`
