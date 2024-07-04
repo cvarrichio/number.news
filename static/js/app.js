@@ -15,22 +15,22 @@ const App = () => {
     useEffect(() => {
         // This effect runs after the content is rendered
         content.forEach(item => {
-          const element = document.getElementById(item.id);
-          if (element) {
-            // Insert the content
-            element.innerHTML = item.content;
-    
-            // Find and execute any scripts
-            const scripts = element.getElementsByTagName('script');
-            Array.from(scripts).forEach(oldScript => {
-              const newScript = document.createElement('script');
-              Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
-              newScript.appendChild(document.createTextNode(oldScript.innerHTML));
-              oldScript.parentNode.replaceChild(newScript, oldScript);
-            });
-          }
+            const element = document.getElementById(`widget-${item.id}`);
+            if (element) {
+                // Insert the content
+                element.innerHTML = item.content;
+
+                // Find and execute any scripts
+                const scripts = element.getElementsByTagName('script');
+                Array.from(scripts).forEach(oldScript => {
+                    const newScript = document.createElement('script');
+                    Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+                    newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+                    oldScript.parentNode.replaceChild(newScript, oldScript);
+                });
+            }
         });
-      }, [content]);
+    }, [content]);
 
     const toggleSidebar = () => setIsActive(!isActive);
 
@@ -68,17 +68,17 @@ const App = () => {
             </div>
 
             <div className="main-content">
-                <section className="section">
                     <div className="container">
                         ${content.map(item => html`
                             <div key=${item.id} id=${item.id} className="content">
-                                <h2 className="title is-4">${item.display_name}</h2>
-                                ${item.description && html`<p className="subtitle">${item.description}</p>`}
-                                <div dangerouslySetInnerHTML=${{ __html: item.content }} />
+                            <div className="header">
+                                 <h2 className="title is-4">${item.display_name}</h2>
+                                 ${item.description && html`<p className="subtitle">${item.description}</p>`}
+                            </div>
+                                <div className="widget" id=${`widget-${item.id}`}></div>
                             </div>
                         `)}
                     </div>
-                </section>
                 <footer className="footer">
                     <div className="container">
                         <div className="content has-text-centered">

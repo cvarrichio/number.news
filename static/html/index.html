@@ -21,9 +21,40 @@
             background-color: #f5f5f5;
             z-index: 30;
         }
+        .container {
+            max-width: 100% !important;
+            display: flex;
+            flex-wrap: wrap;
+        }
         .main-content {
             margin-left: 250px;
         }
+
+        .content {
+            min-width: 340px; /* Reduced from 650px */
+            width: 340px; /* Added to maintain aspect ratio */
+            height: 340px;
+            transform: scale(0.5); /* Scale down to 50% */
+            transition: transform 0.3s ease; /* Smooth transition for transform */
+            /*margin: -25% !important; /* Negative margin to remove gaps */
+        }
+        .header {
+            display:none;
+        }
+        .subtitle {
+            display:none;
+        }
+        .widget {
+            width:680px;
+            height:680px;
+        }
+        .content:hover {
+            transform: scale(1); /* Scale back to 100% on hover */
+            z-index: 10; /* Bring hovered item to front */
+        }
+        .content:hover > .header {
+    display: block; /* or whatever display value you need */
+}
         .navbar-burger {
             display: none;
         }
@@ -34,6 +65,12 @@
             }
             .sidebar.is-active {
                 transform: translateX(0);
+            }
+            .content {
+                width: 100%;
+                height: auto;
+                transform: scale(1);
+                margin: 0;
             }
             .main-content {
                 margin-left: 0;
