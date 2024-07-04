@@ -25,7 +25,6 @@
             max-width: 100% !important;
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
         }
         .main-content {
             margin-left: 250px;
@@ -47,6 +46,7 @@
         }
         .widget {
             width:680px;
+            height:680px;
         }
         .content:hover {
             transform: scale(1); /* Scale back to 100% on hover */
@@ -65,6 +65,12 @@
             }
             .sidebar.is-active {
                 transform: translateX(0);
+            }
+            .content {
+                width: 100%;
+                height: auto;
+                transform: scale(1);
+                margin: 0;
             }
             .main-content {
                 margin-left: 0;

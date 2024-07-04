@@ -68,7 +68,6 @@ const App = () => {
             </div>
 
             <div className="main-content">
-                <section className="section">
                     <div className="container">
                         ${content.map(item => html`
                             <div key=${item.id} id=${item.id} className="content">
@@ -80,7 +79,6 @@ const App = () => {
                             </div>
                         `)}
                     </div>
-                </section>
                 <footer className="footer">
                     <div className="container">
                         <div className="content has-text-centered">
