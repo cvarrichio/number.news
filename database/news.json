@@ -1,0 +1,198 @@
+{
+    "type": "database",
+    "name": "news",
+    "objects": [
+        {
+            "type": "table",
+            "database": null,
+            "name": "content",
+            "withoutRowId": false,
+            "strict": false,
+            "ddl": "CREATE TABLE content (id STRING UNIQUE NOT NULL, display_name STRING, content STRING, default_open BOOLEAN DEFAULT (1), default_visible BOOLEAN DEFAULT (1), index_title STRING UNIQUE, display_order INT, description STRING)",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "STRING",
+                    "constraints": [
+                        {
+                            "type": "UNIQUE",
+                            "definition": "UNIQUE "
+                        },
+                        {
+                            "type": "NOT NULL",
+                            "definition": "NOT NULL"
+                        }
+                    ]
+                },
+                {
+                    "name": "display_name",
+                    "type": "STRING"
+                },
+                {
+                    "name": "content",
+                    "type": "STRING"
+                },
+                {
+                    "name": "default_open",
+                    "type": "BOOLEAN",
+                    "constraints": [
+                        {
+                            "type": "DEFAULT",
+                            "definition": "DEFAULT (1)"
+                        }
+                    ]
+                },
+                {
+                    "name": "default_visible",
+                    "type": "BOOLEAN",
+                    "constraints": [
+                        {
+                            "type": "DEFAULT",
+                            "definition": "DEFAULT (1)"
+                        }
+                    ]
+                },
+                {
+                    "name": "index_title",
+                    "type": "STRING",
+                    "constraints": [
+                        {
+                            "type": "UNIQUE",
+                            "definition": "UNIQUE"
+                        }
+                    ]
+                },
+                {
+                    "name": "display_order",
+                    "type": "INT"
+                },
+                {
+                    "name": "description",
+                    "type": "STRING"
+                }
+            ],
+            "rows": [
+                [
+                    "unemployment",
+                    "True Unemployment Rate",
+                    "<iframe src=\"https:\/\/fred.stlouisfed.org\/graph\/graph-landing.php?g=AXbb&width=670&height=475\" scrolling=\"no\" frameborder=\"0\" style=\"overflow:hidden; width:670px; height:525px;\" allowTransparency=\"true\" loading=\"lazy\"><\/iframe>",
+                    1,
+                    1,
+                    "Unemployment",
+                    6,
+                    "FRED graph including U-6 unemployment and U-6 plus people outside the workforce who want a job"
+                ],
+                [
+                    "weather",
+                    "Local Weather",
+                    "<iframe\n                    src=\"https:\/\/www.meteoblue.com\/en\/weather\/widget\/three?geoloc=detect&nocurrent=0&noforecast=0&days=5&tempunit=FAHRENHEIT&windunit=MILE_PER_HOUR&layout=image\"\n                    frameborder=\"0\" scrolling=\"NO\" allowtransparency=\"true\"\n                    sandbox=\"allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox\"\n                    style=\"width: 100%; height: 603px\"><\/iframe>",
+                    1,
+                    1,
+                    "Weather",
+                    1,
+                    "METEO Blue local weather forecast"
+                ],
+                [
+                    "radar",
+                    "Weather Map",
+                    "<iframe width=\"100%\" height=\"450\"\n                    src=\"https:\/\/embed.windy.com\/embed2.html?width=600&height=450&zoom=3&level=surface&overlay=radar&product=radar&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=mph&metricTemp=%C2%B0F&radarRange=-1\"\n                    frameborder=\"0\"><\/iframe>",
+                    1,
+                    1,
+                    "Radar",
+                    2,
+                    "Windy weather map"
+                ],
+                [
+                    "stocks",
+                    "Stock Markets",
+                    "<script type=\"text\/javascript\"\n                        src=\"https:\/\/s3.tradingview.com\/external-embedding\/embed-widget-market-overview.js\" async>\n                            {\n                                \"colorTheme\": \"light\",\n                                    \"dateRange\": \"12m\",\n                                        \"showChart\": true,\n                                            \"locale\": \"en\",\n                                                \"largeChartUrl\": \"\",\n                                                    \"isTransparent\": false,\n                                                        \"width\": \"680\",\n                                                            \"height\": \"660\",\n                                                                \"plotLineColorGrowing\": \"rgba(33, 150, 243, 1)\",\n                                                                    \"plotLineColorFalling\": \"rgba(33, 150, 243, 1)\",\n                                                                        \"gridLineColor\": \"rgba(240, 243, 250, 1)\",\n                                                                            \"scaleFontColor\": \"rgba(120, 123, 134, 1)\",\n                                                                                \"belowLineFillColorGrowing\": \"rgba(33, 150, 243, 0.12)\",\n                                                                                    \"belowLineFillColorFalling\": \"rgba(33, 150, 243, 0.12)\",\n                                                                                        \"symbolActiveColor\": \"rgba(33, 150, 243, 0.12)\",\n                                                                                            \"tabs\": [\n                                                                                                {\n                                                                                                    \"title\": \"Indices\",\n                                                                                                    \"symbols\": [\n                                                                                                        {\n                                                                                                            \"s\": \"FOREXCOM:SPXUSD\",\n                                                                                                            \"d\": \"S&P 500\"\n                                                                                                        },\n                                                                                                        {\n                                                                                                            \"s\": \"FOREXCOM:NSXUSD\",\n                                                                                                            \"d\": \"Nasdaq 100\"\n                                                                                                        },\n                                                                                                        {\n                                                                                                            \"s\": \"FOREXCOM:DJI\",\n                                                                                                            \"d\": \"Dow 30\"\n                                                                                                        },\n                                                                                                        {\n                                                                                                            \"s\": \"INDEX:NKY\",\n                                                                                                            \"d\": \"Nikkei 225\"\n                                                                                                        },\n                                                                                                        {\n                                                                                                            \"s\": \"INDEX:DEU30\",\n                                                                                                            \"d\": \"DAX Index\"\n                                                                                                        },\n                                                                                                        {\n                                                                                                            \"s\": \"FOREXCOM:UKXGBP\",\n                                                                                                            \"d\": \"FTSE 100\"\n                                                                                                        }\n                                                                                                    ],\n                                                                                                    \"originalTitle\": \"Indices\"\n                                                                                                },\n                                                                                                {\n                                                                                                    \"title\": \"Commodities\",\n                                                                                                    \"symbols\": [\n                                                                                                        {\n                                                                                                            \"s\": \"CME_MINI:ES1!\",\n                                                                                                            \"d\": \"E-Mini S&P\"\n                                                                                                        },\n                                                                                                        {\n                                                                                                            \"s\": \"CME:6E1!\",\n                                                                                                            \"d\": \"Euro\"\n                                                                                                        },\n                                                                                                        {\n                                                                                                            \"s\": \"COMEX:GC1!\",\n                                                                                                            \"d\": \"Gold\"\n                                                                                                        },\n                                                                                                        {\n                                                                                                            \"s\": \"NYMEX:CL1!\",\n                                                                                                            \"d\": \"Crude Oil\"\n                                                                                                        },\n                                                                                                        {\n                                                                                                            \"s\": \"NYMEX:NG1!\",\n                                                                                                            \"d\": \"Natural Gas\"\n                                                                                                        },\n                                                                                                        {\n                                                                                                            \"s\": \"CBOT:ZC1!\",\n                                                                                                            \"d\": \"Corn\"\n                                                                                                        }\n                                                                                                    ],\n                                                                                                    \"originalTitle\": \"Commodities\"\n                                                                                                },\n                                                                                                {\n                                                                                                    \"title\": \"Bonds\",\n                                                                                                    \"symbols\": [\n                                                                                                        {\n                                                                                                            \"s\": \"CME:GE1!\",\n                                                                                                            \"d\": \"Eurodollar\"\n                                                                                                        },\n                                                                                                        {\n                                                                                                            \"s\": \"CBOT:ZB1!\",\n                                                                                                            \"d\": \"T-Bond\"\n                                                                                                        },\n                                                                                                        {\n                                                                                                            \"s\": \"CBOT:UB1!\",\n                                                                                                            \"d\": \"Ultra T-Bond\"\n                                                                                                        },\n                                                                                                        {\n                                                                                                            \"s\": \"EUREX:FGBL1!\",\n                                                                                                            \"d\": \"Euro Bund\"\n                                                                                                        },\n                                                                                                        {\n                                                                                                            \"s\": \"EUREX:FBTP1!\",\n                                                                                                            \"d\": \"Euro BTP\"\n                                                                                                        },\n                                                                                                        {\n                                                                                                            \"s\": \"EUREX:FGBM1!\",\n                                                                                                            \"d\": \"Euro BOBL\"\n                                                                                                        }\n                                                                                                    ],\n                                                                                                    \"originalTitle\": \"Bonds\"\n                                                                                                },\n                                                                                                {\n                                                                                                    \"title\": \"Forex\",\n                                                                                                    \"symbols\": [\n                                                                                                        {\n                                                                                                            \"s\": \"FX:EURUSD\"\n                                                                                                        },\n                                                                                                        {\n                                                                                                            \"s\": \"FX:GBPUSD\"\n                                                                                                        },\n                                                                                                        {\n                                                                                                            \"s\": \"FX:USDJPY\"\n                                                                                                        },\n                                                                                                        {\n                                                                                                            \"s\": \"FX:USDCHF\"\n                                                                                                        },\n                                                                                                        {\n                                                                                                            \"s\": \"FX:AUDUSD\"\n                                                                                                        },\n                                                                                                        {\n                                                                                                            \"s\": \"FX:USDCAD\"\n                                                                                                        }\n                                                                                                    ],\n                                                                                                    \"originalTitle\": \"Forex\"\n                                                                                                }\n                                                                                            ]\n                            }\n                        <\/script>",
+                    1,
+                    1,
+                    "Stocks",
+                    3,
+                    "Trading View stock markets"
+                ],
+                [
+                    "us_debt",
+                    "National Debt",
+                    "<iframe src=\"https:\/\/fred.stlouisfed.org\/graph\/graph-landing.php?g=ALoR&width=670&height=475\" scrolling=\"no\" frameborder=\"0\" style=\"overflow:hidden; width:670px; height:525px;\" allowTransparency=\"true\" loading=\"lazy\"><\/iframe>",
+                    1,
+                    1,
+                    "US Debt",
+                    5,
+                    "FRED graph with national debt"
+                ],
+                [
+                    "yield_curve",
+                    "Yield Curve",
+                    "<script type='text\/javascript' src='https:\/\/www.thefinancials.com\/Widget.aspx?pid=FREE&mode=js&wid=0050200479&width=100%'><\/script>",
+                    1,
+                    1,
+                    null,
+                    7,
+                    "Financials interactive yield curve widget"
+                ],
+                [
+                    "corona_stats",
+                    "COVID Summary",
+                    "<iframe src=\"https:\/\/public.domo.com\/cards\/aOm4g\" width=\"100%\" height=\"600\" marginheight=\"0\"\n                    marginwidth=\"0\" frameborder=\"0\"><\/iframe>",
+                    0,
+                    0,
+                    "COVID",
+                    8,
+                    "DOMO summary stats for COVID"
+                ],
+                [
+                    "covid_daily",
+                    "Daily COVID-19 Deaths",
+                    "<iframe\n                    src=\"https:\/\/ourworldindata.org\/grapher\/daily-deaths-covid-19?country=OWID_WRL~USA~Europe~South%20America\"\n                    loading=\"lazy\" style=\"width: 100%; height: 600px; border: 0px none;\"><\/iframe>",
+                    0,
+                    0,
+                    null,
+                    9,
+                    "Our World in Data daily COVID 19 deaths"
+                ],
+                [
+                    "drought",
+                    "Drought Monitor",
+                    "<img style='height: 100%; width: 100%; object-fit: contain'\n                    src=\"https:\/\/droughtmonitor.unl.edu\/data\/png\/current\/current_usdm.png\" \/>",
+                    1,
+                    1,
+                    "Drought",
+                    10,
+                    "US Drought Monitor"
+                ],
+                [
+                    "mortgage_rates",
+                    "Mortgage Rates",
+                    "<iframe src=\"\/\/www.mortgagecalculator.org\/rates-widgets\/mortgages\/text-widget.php?latest-vs-previous\"\n                    frameborder=\"0\" style=\"border: 0; overflow: 0; width: 400px;\" scrolling=\"no\"><\/iframe>\n                <p style='margin-top:-40px'>\n                    Powered by <a\n                        href=\"https:\/\/www.mortgagecalculator.org\/rates-widgets\/mortgages\/\">MortageCalculator.org<\/a>\n                <\/p>",
+                    1,
+                    1,
+                    "Mortgage",
+                    11,
+                    "Mortgage Rates widget"
+                ],
+                [
+                    "google_trends",
+                    "Google Trends",
+                    "<script type=\"text\/javascript\" src=\"https:\/\/ssl.gstatic.com\/trends_nrtr\/3769_RC01\/embed_loader.js\"><\/script> <script type=\"text\/javascript\"> trends.embed.renderWidget(\"dailytrends\", \"\", {\"geo\":\"US\",\"guestPath\":\"https:\/\/trends.google.com:443\/trends\/embed\/\"}); <\/script>",
+                    1,
+                    1,
+                    "Trends",
+                    12,
+                    "Google Trends, daily"
+                ],
+                [
+                    "stock_heat",
+                    "Stock Heat Map",
+                    "<script type=\"text\/javascript\" src=\"https:\/\/s3.tradingview.com\/external-embedding\/embed-widget-stock-heatmap.js\" async>\n  {\n  \"exchanges\": [],\n  \"dataSource\": \"SPX500\",\n  \"grouping\": \"sector\",\n  \"blockSize\": \"market_cap_basic\",\n  \"blockColor\": \"change\",\n  \"locale\": \"en\",\n  \"symbolUrl\": \"\",\n  \"colorTheme\": \"light\",\n  \"hasTopBar\": false,\n  \"isDataSetEnabled\": false,\n  \"isZoomEnabled\": true,\n  \"hasSymbolTooltip\": true,\n  \"isMonoSize\": false,\n  \"width\": \"100%\",\n  \"height\": \"100%\"\n}\n  <\/script>",
+                    1,
+                    1,
+                    null,
+                    4,
+                    "Traving View stock heat map"
+                ]
+            ]
+        }
+    ]
+}
