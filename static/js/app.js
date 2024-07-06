@@ -49,6 +49,7 @@ const App = () => {
                             <span aria-hidden="true"></span>
                         </a>
                     </div>
+
                 </div>
             </nav>
 
@@ -63,7 +64,9 @@ const App = () => {
                                 </a>
                             </li>
                         `)}
+                        <a href='https://sota.technology/' target="_blank" rel="noopener noreferrer">${"→"}Machine Learning SOTA</a>
                     </ul>
+                    
                 </aside>
             </div>
 
