@@ -1,22 +1,11 @@
 from fastapi import FastAPI, Depends
 from fastapi.staticfiles import StaticFiles
-from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import create_engine, Column, String, Boolean, Integer
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
-from pydantic import BaseModel
+from sqlalchemy.orm import declarative_base, sessionmaker
+from pydantic import BaseModel, ConfigDict
 from typing import List, Optional
 
 app = FastAPI()
-
-# Add CORS middleware
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
@@ -50,6 +39,8 @@ Base.metadata.create_all(bind=engine)
 
 # Pydantic models
 class ContentOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
     id: str
     display_name: str
     content: str
@@ -58,9 +49,6 @@ class ContentOut(BaseModel):
     index_title: Optional[str]
     display_order: int
     description: Optional[str]
-
-    class Config:
-        orm_mode = True
 
 # Dependency
 def get_db():
